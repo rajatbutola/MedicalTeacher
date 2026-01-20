@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl"
+  class="in-text"
+  version="1.0"
+  default-locale="en-US">
+
+  <info>
+    <title>Medical Teacher (author-date, custom)</title>
+    <id>http://www.zotero.org/styles/medical-teacher-author-date-custom</id>
+    <category citation-format="author-date"/>
+    <updated>2026-01-19</updated>
+  </info>
+
+  <!-- ================= AUTHORS ================= -->
+  <macro name="author">
+    <names variable="author">
+      <name name-as-sort-order="all"
+            initialize-with=""
+            delimiter=", "
+            delimiter-precedes-last="always"/>
+      <substitute>
+        <names variable="editor"/>
+        <text variable="title"/>
+      </substitute>
+    </names>
+  </macro>
+
+  <!-- ================= YEAR ================= -->
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <!-- ================= TITLE ================= -->
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <!-- ================= JOURNAL ================= -->
+  <macro name="container">
+    <text variable="container-title" form="short"/>
+  </macro>
+
+  <!-- ========== VOLUME(ISSUE):PAGES ========== -->
+  <macro name="locators">
+    <group>
+      <text variable="volume"/>
+      <group prefix="(" suffix=")">
+        <text variable="issue"/>
+      </group>
+      <text variable="page" prefix=":"/>
+    </group>
+  </macro>
+
+  <!-- ================= DOI ================= -->
+  <macro name="doi">
+    <text variable="DOI" prefix="doi:"/>
+  </macro>
+
+  <!-- ================= IN-TEXT CITATION ================= -->
+  <citation et-al-min="3"
+            et-al-use-first="1"
+            delimiter="; ">
+    <layout prefix="(" suffix=")">
+      <group delimiter=", ">
+        <names variable="author" and="text">
+          <name form="short"/>
+        </names>
+        <text macro="issued"/>
+      </group>
+    </layout>
+  </citation>
+
+  <!-- ================= BIBLIOGRAPHY ================= -->
+  <bibliography hanging-indent="true">
+    <sort>
+      <key macro="author"/>
+      <key macro="issued"/>
+    </sort>
+
+    <layout suffix=".">
+      <text macro="author" suffix=". "/>
+      <text macro="issued" suffix=". "/>
+      <text macro="title" suffix=". "/>
+      <text macro="container" suffix=". "/>
+      <text macro="locators" suffix=". "/>
+      <text macro="doi"/>
+    </layout>
+  </bibliography>
+
+</style>
