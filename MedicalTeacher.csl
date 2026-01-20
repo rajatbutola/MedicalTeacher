@@ -5,13 +5,12 @@
     <title>Medical Teacher (author-date, custom)</title>
     <id>http://www.zotero.org/styles/medical-teacher-author-date-custom</id>
     <category citation-format="author-date"/>
-    <updated>2026-01-19</updated>
+    <updated>2026-01-20</updated>
   </info>
 
-  <!-- Authors -->
+  <!-- ================= AUTHORS ================= -->
   <macro name="author">
-    <names variable="author" delimiter=", " delimiter-precedes-last="always">
-      <name initialize-with="."/>
+    <names variable="author" name-as-sort-order="all" delimiter=", " delimiter-precedes-last="always" initialize-with=".">
       <substitute>
         <names variable="editor"/>
         <text variable="title"/>
@@ -19,24 +18,24 @@
     </names>
   </macro>
 
-  <!-- Year -->
+  <!-- ================= YEAR ================= -->
   <macro name="issued">
     <date variable="issued">
       <date-part name="year"/>
     </date>
   </macro>
 
-  <!-- Title -->
+  <!-- ================= TITLE ================= -->
   <macro name="title">
     <text variable="title"/>
   </macro>
 
-  <!-- Journal -->
+  <!-- ================= JOURNAL ================= -->
   <macro name="container">
     <text variable="container-title" form="short"/>
   </macro>
 
-  <!-- Volume(Issue):Pages -->
+  <!-- ========== VOLUME(ISSUE):PAGES ========== -->
   <macro name="locators">
     <group delimiter="">
       <text variable="volume"/>
@@ -45,22 +44,22 @@
     </group>
   </macro>
 
-  <!-- DOI -->
+  <!-- ================= DOI ================= -->
   <macro name="doi">
     <text variable="DOI" prefix="doi:"/>
   </macro>
 
-  <!-- In-text citation -->
-  <citation et-al-min="3" et-al-use-first="1" delimiter="; ">
+  <!-- ================= IN-TEXT CITATION ================= -->
+  <citation et-al-min="3" et-al-use-first="1" collapse="year" delimiter="; ">
     <layout prefix="(" suffix=")">
       <group delimiter=", ">
-        <names variable="author" initialize-with="." delimiter=", " delimiter-precedes-last="always"/>
+        <names variable="author" name-as-sort-order="all" delimiter=", " delimiter-precedes-last="always"/>
         <text macro="issued"/>
       </group>
     </layout>
   </citation>
 
-  <!-- Bibliography -->
+  <!-- ================= BIBLIOGRAPHY ================= -->
   <bibliography hanging-indent="true">
     <sort>
       <key macro="author"/>
